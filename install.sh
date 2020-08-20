@@ -12,9 +12,22 @@ sudo apt install libxcb1-dev libxcb-keysyms1-dev libpango1.0-dev libxcb-util0-de
 
 sudo apt install libxb-xrm-dev
 
+sudo apt-get install vim
+sudo apt-get install vim-gtk3
+sudo apt-get install ranger
+sudo apt-get install cargo
+cargo install exa
+sudo apt-get install dropbox
+sudo apt-get install vlc
+sudo apt-get install spotify-client
 sudo add-apt-repository ppa:kgilmer/speed-ricer
 sudo apt-get update
 sudo apt-get install i3-gaps
+sudo apt-get install cmake
+apt install build-essential cmake vim python3-dev
+sudo apt-get install mono-complete
+sudo apt-get install nodejs
+sudo apt-get install python3-pip
 
 
 # Tmux Plugins
@@ -24,6 +37,16 @@ git clone https://github.com/tmux-plugins/tpm ~/.tmux/plugins/tpm
 git clone https://github.com/arcticicestudio/nord-gnome-terminal.git
 cd nord-gnome-terminal/src
 ./nord.sh
+
+# Install powerline fonts
+# clone
+git clone https://github.com/powerline/fonts.git --depth=1
+# install
+cd fonts
+./install.sh
+# clean-up a bit
+cd ..
+rm -rf fonts
 
 ### Vim Plugins to install ###
 
@@ -78,4 +101,9 @@ git clone https://github.com/vimwiki/vimwiki
 # youcompleteme
 git clone https://github.com/valloric/youcompleteme
 
-echo To finish, you need to finish the YouCompleteMe install here: https://vimawesome.com/plugin/youcompleteme#linux-64-bit
+echo Things you still need to do:
+echo    -need to finish the YouCompleteMe install here: https://vimawesome.com/plugin/youcompleteme#linux-64-bit
+echo    -need to source the tmux plugins with mod-I
+echo    -need to set the Source Code Pro font in the terminal 
+echo    -need to install Slack from the source 
+echo    -need to add /home/gavin/.cargo/bin to my PATH
