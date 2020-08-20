@@ -33,7 +33,7 @@ font pango:Source Code Pro 12
 # screen before suspend. Use loginctl lock-session to lock your screen.
 exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 
-# run the mousepad properly
+# LAPTOP: run the mousepad properly
 exec --no-startup-id csd-mouse
 
 # set the background
