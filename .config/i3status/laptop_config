@@ -1,0 +1,79 @@
+# i3status configuration file.
+# see "man i3status" for documentation.
+
+# It is important that this file is edited as UTF-8.
+# The following line should contain a sharp s:
+# ß
+# If the above line is not correctly displayed, fix your editor first!
+
+general {
+        colors = true
+        interval = 2
+        color_good = "#A3BE8C"
+        color_degraded = "#D08770"
+        color_bad = "#BF616A"
+        output_format = "i3bar"
+}
+
+order += "cpu_usage"
+order += "volume master"
+order += "wireless _first_"
+order += "battery all"
+order += "disk /"
+order += "disk /home"
+#order += "load"
+order += "memory"
+order += "tztime local"
+
+cpu_usage {
+    #format = "CPU %usage {%cpu0 %cpu1 %cpu2 %cpu3}"
+    format = "CPU %usage"
+    max_threshold = 75
+}
+
+wireless _first_ {
+        format_up = "WiFi: (%quality at %essid) %ip"
+        format_down = "WiFi: down"
+}
+
+volume master {
+    format = "♪: %volume"
+    format_muted = "♪: muted (%volume)"
+}
+
+# Not currently using
+ethernet _first_ {
+        format_up = "E: %ip (%speed)"
+        format_down = "E: down"
+}
+
+battery all {
+        format = "%status %percentage %remaining"
+        status_chr = ⚡  
+        status_bat = 🔋  
+        status_full = ✔
+}
+
+disk "/" {
+        format = "💽 Root: %avail of %total"
+}
+
+disk "/home" {
+        format = "💽 Home: %avail of %total"
+}
+
+
+load {
+        format = "%1min %5min"
+}
+
+memory {
+        format = "🐏 %used / %total"
+        threshold_degraded = "1G"
+        format_degraded = "MEMORY < %available"
+}
+
+tztime local {
+        #format = "%m-%d-%Y %H:%M:%S"
+        format = "%a %b %d %Y - %I:%M:%S"
+}
