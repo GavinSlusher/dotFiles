@@ -18,8 +18,10 @@ sudo apt-get install ranger
 sudo apt-get install cargo
 cargo install exa
 sudo apt-get install dropbox
+sudo apt-get install flameshot
 sudo apt-get install vlc
 sudo apt-get install spotify-client
+sudo apt-get install pandoc
 sudo add-apt-repository ppa:kgilmer/speed-ricer
 sudo apt-get update
 sudo apt-get install i3-gaps
@@ -100,6 +102,9 @@ git clone https://github.com/vimwiki/vimwiki
 
 # youcompleteme
 git clone https://github.com/valloric/youcompleteme
+
+# Goyo
+git clone https://github.com/junegunn/goyo.vim
 
 echo Things you still need to do:
 echo    -need to finish the YouCompleteMe install here: https://vimawesome.com/plugin/youcompleteme#linux-64-bit

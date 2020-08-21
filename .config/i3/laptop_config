@@ -37,7 +37,7 @@ exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
 exec --no-startup-id csd-mouse
 
 # set the background
-exec --no-startup-id nitrogen --restore
+exec --no-startup-id nitrogen --set-scaled --random /home/gavin/Dropbox/Reference/p/Photos/wallpapers
 
 exec --no-startup-id dropbox start
 
