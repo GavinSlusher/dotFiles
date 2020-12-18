@@ -191,3 +191,5 @@ let g:vimwiki_list = [{'path': '/home/gavin/Dropbox/Reference/w/vimwiki/',
                       \ 'syntax': 'markdown', 'ext': '.md'}]
 
 
+"Markdown Preview
+let vim_markdown_preview_pandoc=1
