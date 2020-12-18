@@ -28,6 +28,7 @@ apt install build-essential cmake vim python3-dev
 sudo apt-get install mono-complete
 sudo apt-get install nodejs
 sudo apt-get install python3-pip
+sudo apt-get install universal-ctags
 
 
 # Tmux Plugins
