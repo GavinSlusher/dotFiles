@@ -28,3 +28,5 @@ fi
 
 export PATH=$PATH:/usr/local/go/bin
 export PATH=$PATH:/home/gavin/.cargo/bin
+export PATH=$PATH:/home/gavin/IDEs/android-studio/bin
+source "$HOME/.cargo/env"
