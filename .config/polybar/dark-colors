@@ -1,0 +1,15 @@
+; vim:ft=dosini
+
+[colors]
+background = #2E3440
+background-alt = #4c566a
+foreground = #D8DEE9
+foreground-alt = #ECEFF4
+primary = #8FBCBB
+secondary = #88C0D0
+tertiary = #81A1C1
+alert = #BF616A
+warning = #D08770
+notify = #EBCB8B
+success = #A3BE8C
+function = #B48EAD
