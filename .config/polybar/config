@@ -33,14 +33,14 @@ function = #B48EAD
 
 [bar/example]
 ;monitor = ${env:MONITOR:HDMI-1}
-width = 100%
-height = 60
-;offset-x = 1%
-;offset-y = 1%
+width = 98%
+height = 25
+offset-x = 1%
+; offset-y = 1%
 radius = 6.0
 fixed-center = false
 
-dpi = 290
+; dpi = 290
 
 background = ${colors.background}
 foreground = ${colors.foreground}
@@ -59,17 +59,21 @@ module-margin-right = 2
 
 font-0 = fixed:pixelsize=10;1
 font-1 = unifont:fontformat=truetype:size=8:antialias=false;0
-font-2 = siji:pixelsize=10;1
+; font-2 = siji:pixelsize=10;1
+font-2 = FontAwesome:pixelsize=12;1
 
 modules-left = i3
 modules-center = xwindow
-modules-right = filesystem backlight pulseaudio xkeyboard cpu memory wlan eth battery temperature date powermenu
+; modules-right = filesystem xkeyboard cpu memory wlan temperature date powermenu
+modules-right = xkeyboard cpu memory temperature date powermenu
 
 tray-position = right
+tray-detached = true
+tray-offset-x = -275
 tray-padding = 2
 
 ; Sets the tray icon size
-tray-maxsize = 32 
+tray-maxsize = 15 
 
 ; Sets the tray bg color
 tray-background = ${colors.background-alt}
@@ -108,7 +112,7 @@ interval = 25
 
 mount-0 = /
 
-label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %percentage_used%% MEM
+label-mounted = %{F#0a81f5}%mountpoint%%{F-}: %fsname% %used% | %total%
 label-unmounted = %mountpoint% not mounted
 label-unmounted-foreground = ${colors.foreground-alt}
 
@@ -164,11 +168,11 @@ icon-next = 
 label-song-maxlen = 25
 label-song-ellipsis = true
 
-[module/backlight]
-type = internal/backlight
-card = intel_backlight
-format = <label> <bar>
-label = LIGHT %percentage%
+; [module/backlight]
+; type = internal/backlight
+; card = intel_backlight
+; format = <label> <bar>
+; label = LIGHT %percentage%
 
 bar-width = 10
 bar-indicator = |
@@ -184,7 +188,8 @@ bar-empty-foreground = ${colors.foreground-alt}
 [module/cpu]
 type = internal/cpu
 interval = 2
-format-prefix = "CPU"
+; format-prefix = "CPU"
+format-prefix = " "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.alert}
 label = %percentage:2%%
@@ -192,10 +197,11 @@ label = %percentage:2%%
 [module/memory]
 type = internal/memory
 interval = 2
-format-prefix = "RAM "
+; format-prefix = "RAM "
+format-prefix = "  "
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = ${colors.warning}
-label = %percentage_used%%
+label = %gb_used%
 
 [module/wlan]
 type = internal/network
@@ -203,7 +209,7 @@ type = internal/network
 ; Name of the network interface to display. You can get the names of the
 ; interfaces on your machine with `ip link`
 ; Wireless interfaces often start with `wl` and ethernet interface with `eno` or `eth`
-interface = wlp0s20f3
+interface = wlp4s0
 
 interval = 3.0
 
@@ -220,11 +226,11 @@ format-disconnected = <label-disconnected>
 ;label-disconnected = %ifname% disconnected
 ;label-disconnected-foreground = ${colors.foreground-alt}
 
-ramp-signal-0 = 
-ramp-signal-1 = 
-ramp-signal-2 = 
-ramp-signal-3 = 
-ramp-signal-4 = 
+ramp-signal-0 = 1
+ramp-signal-1 = 2
+ramp-signal-2 = 3
+ramp-signal-3 = 
+ramp-signal-4 = 5
 ramp-signal-foreground = ${colors.foreground-alt}
 
 [module/eth]
@@ -248,12 +254,12 @@ type = internal/date
 interval = 5
 
 date =
-date-alt = " %Y-%m-%d"
+date-alt = "%m-%d-%Y"
 
-time = %H:%M
-time-alt = %H:%M:%S
+time = %l:%M
+time-alt = %l:%M:%S
 
-format-prefix = 
+format-prefix = 
 format-prefix-foreground = ${colors.foreground-alt}
 format-underline = #0a6cf5
 
@@ -266,7 +272,7 @@ format-volume = <label-volume> <bar-volume>
 label-volume = VOL %percentage%
 label-volume-foreground = ${root.foreground}
 
-label-muted = 🔇 muted
+label-muted = muted
 label-muted-foreground = #666
 
 bar-volume-width = 10
@@ -333,9 +339,9 @@ label = %temperature-c%
 label-warn = %temperature-c%
 label-warn-foreground = ${colors.secondary}
 
-ramp-0 = 
-ramp-1 = 
-ramp-2 = 
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
 ramp-foreground = ${colors.foreground-alt}
 
 [module/powermenu]
@@ -345,27 +351,41 @@ expand-right = true
 
 format-spacing = 1
 
-label-open = 
+label-open = 
 label-open-foreground = ${colors.secondary}
-label-close =  cancel
+label-close = 
 label-close-foreground = ${colors.secondary}
 label-separator = |
 label-separator-foreground = ${colors.foreground-alt}
 
-menu-0-0 = reboot
+menu-0-0 = Reboot
 menu-0-0-exec = menu-open-1
-menu-0-1 = power off
+menu-0-1 = Power Off
 menu-0-1-exec = menu-open-2
+menu-0-2 = Log Out
+menu-0-2-exec = menu-open-3
 
-menu-1-0 = cancel
-menu-1-0-exec = menu-open-0
-menu-1-1 = reboot
-menu-1-1-exec = sudo reboot
+; menu-1-0 =  
+; menu-1-0-exec = menu-open-0
+; menu-1-1 = reboot
+; menu-1-1-exec = reboot
 
-menu-2-0 = power off
-menu-2-0-exec = sudo poweroff
-menu-2-1 = cancel
-menu-2-1-exec = menu-open-0
+menu-1-0 = Reboot?
+menu-1-1 = Yes
+menu-1-1-exec = reboot
+
+menu-2-0 = Power Off?
+menu-2-1 = Yes
+menu-2-1-exec =  poweroff
+
+; menu-2-0 = power off
+; menu-2-0-exec =  poweroff
+; menu-2-1 = 
+; menu-2-1-exec = menu-close-0
+
+menu-3-0 = Log Out?
+menu-3-1 = Yes
+menu-3-1-exec = "i3-msg exit"
 
 [settings]
 screenchange-reload = true
