@@ -4,37 +4,33 @@ execute pathogen#infect()
 syntax enable
 filetype plugin indent on
 
-set background=dark
-""colorscheme solarized
-"
+set rtp+=~/.fzf
+
 "Note: for this to work, we need the Gnome terminal to install nord as well
+set termguicolors
 colorscheme nord
+" colorscheme PaperColor
+set background=dark
 
 nnoremap ,top :read ~/.snippets/top.txt<CR><CR>2jA<C-R>=strftime("%m/%d/%Y")<CR><ESC>jA
 
 nnoremap ,fun :read ~/.snippets/fun.txt<ESC>jA
 
 set expandtab
-
 set hlsearch
-
 set wildmenu
-
 set showcmd
-
 set colorcolumn=80
-
 set relativenumber
-
 set number
-
 set cursorline
+set clipboard=unnamedplus
 
 
 "Set the path
 "NOTE: this is the'lazy' way and might run slow on big projects. See:
 "https://gist.github.com/romainl/7e2b425a1706cd85f04a0bd8b3898805
-set path=.,,**
+" set path=.,,**
 
 "search the current directory and then up all the way to root for a tags
 "folder
@@ -100,6 +96,7 @@ inoremap {;<CR> {<CR>};<ESC>O
 
 "airline theme
 "let g:airline_solarized_bg='light'
+" let g:airline_theme='papercolor'
 let g:airline_powerline_fonts = 1 "fancy arrows, needs powerline fonts
 
 "SNIPPETS
@@ -193,3 +190,19 @@ let g:vimwiki_list = [{'path': '/home/gavin/Dropbox/Reference/w/vimwiki/',
 
 "Markdown Preview
 let vim_markdown_preview_pandoc=1
+
+"FZF remapping
+:nnoremap <leader>f :Files
+
+
+"GO-Vim settings
+set autowrite
+map <C-n> :cnext<CR>
+map <C-m> :cprevious<CR>
+nnoremap <leader>a :cclose<CR>
+
+autocmd FileType go nmap <leader>b  <Plug>(go-build)
+autocmd FileType go nmap <leader>r  <Plug>(go-run)
+
+:set list
+:set lcs=tab:\|\  " the last character is space!
